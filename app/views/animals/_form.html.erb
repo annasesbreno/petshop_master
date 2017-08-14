@@ -26,9 +26,10 @@
     <%= form.number_field :Price, id: :animal_Price %>
   </div>
 
-    <div class="field">
-    <%= form.label :Status %>
-    <%= form.text_field :Status, id: :animal_Status %>
+  <div class="field">
+   <%= form.label :Status %>
+   <%= form.radio_button :Status, "For Sale", checked: true %>For Sale
+   <%= form.radio_button :Status, "Sold", checked: true %>Sold
   </div>
 
   <div class="actions">

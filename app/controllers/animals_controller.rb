@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :set_animal, only: [:show, :edit, :mark, :update, :destroy]
 
   # GET /animals
   # GET /animals.json
@@ -10,6 +10,7 @@ class AnimalsController < ApplicationController
   # GET /animals/1
   # GET /animals/1.json
   def show
+    @animal = Animal.find(params[:id])
   end
 
   # GET /animals/new
@@ -19,8 +20,16 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1/edit
   def edit
+    @animal = Animal.find(params[:id])
   end
 
+  def mark
+    if animal && animal.update(animal_params)
+      redirect_to animal_path
+    else
+      redirect_to edit_animal_path
+    end
+  end
   # POST /animals
   # POST /animals.json
   def create
@@ -61,15 +70,13 @@ class AnimalsController < ApplicationController
     end
   end
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_animal
       @animal = Animal.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_params
-      params.require(:animal).permit(:Species, :Breed, :Price, :Status)
+      params.require(:animal).permit(:Species, :Breed, :Price, :Status, :sold, :sale)
     end
 end

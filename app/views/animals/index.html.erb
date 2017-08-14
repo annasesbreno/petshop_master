@@ -24,7 +24,7 @@
         <td><%= animal.Breed %></td>
         <td><%= animal.Price %></td>
         <td><%= animal.Status %></td>
-        <td><button><%= link_to 'Mark', edit_animal_path(animal) %></button></td>
+        <td><button><%= link_to 'Mark as Sold', edit_animal_path(animal) %></button></td>
         <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button></td>
         <td><button><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>

@@ -24,11 +24,20 @@ class AnimalsController < ApplicationController
   end
 
   def mark
-    if animal && animal.update(animal_params)
-      redirect_to animal_path
-    else
-      redirect_to edit_animal_path
+        respond_to do |format|
+      if @animal.update(animal_params)
+        format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
+        format.json { render :show, status: :ok, location: @animal }
+      else
+        format.html { render :edit }
+        format.json { render json: @animal.errors, status: :unprocessable_entity }
+      end
     end
+    #if animal && animal.update(animal_params)
+      #redirect_to animal_path
+    #else
+      #redirect_to edit_animal_path
+    #end
   end
   # POST /animals
   # POST /animals.json

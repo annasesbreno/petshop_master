@@ -24,7 +24,7 @@
         <td><%= animal.Breed %></td>
         <td><%= animal.Price %></td>
         <td><%= animal.Status %></td>
-        <td><button><%= link_to 'Mark as Sold', edit_animal_path(animal) %></button></td>
+        <td><button><%= link_to 'Mark as Sold'%></button></td>
         <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button></td>
         <td><button><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
@@ -34,3 +34,4 @@
 
 <br>
 <button><%= link_to 'Add New Animal', new_animal_path %></button>
+<button><%= link_to 'Inventory' %></button>

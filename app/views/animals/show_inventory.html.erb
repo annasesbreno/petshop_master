@@ -1,0 +1,30 @@
+<div>
+  <center><h1>Pet Shop Inventory</h1></center>
+</div>
+
+<h2>Summary</h2>
+<p>
+<h4>For sale</h4>
+	<strong>Number of Dogs:</strong>
+	<%= @animal = Animal.count %>
+	<br><strong>Number of Cats:</strong>
+	<%= @animal = Animal.count %>
+</p>
+
+<p>
+<h4>Sold</h4>
+	<strong>Number of Dogs:</strong>
+	<%= @animal = Animal.count %>
+	<br><strong>Number of Cats:</strong>
+	<%= @animal = Animal.count %>
+</p>
+
+<p>
+<h3>Total Amount Received From Sales</h3>
+</p>
+
+<br><br>
+<button><%= link_to 'Species', animals_path %></button> -
+<button><%= link_to 'Breed', animals_path %></button> -
+<button><%= link_to 'Status', animals_path %></button> -
+<button><%= link_to 'Back', animals_path %></button> 

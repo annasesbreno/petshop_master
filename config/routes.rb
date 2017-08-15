@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     get 'change_status_sale' => 'animals#change_status_sale'
     get 'change_status_sold' => 'animals#change_status_sold'
     get 'show_inventory' => 'animals#show_inventory'
+    get 'species_dog' => 'animals#species_dog'
+    get 'species_cat' => 'animals#species_cat'
     end
 end
 

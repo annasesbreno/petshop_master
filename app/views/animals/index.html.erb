@@ -33,8 +33,7 @@
         <%end%>
         <td><button><%= link_to 'Show', animal%></button> - </td>
         <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button> - </td> 
-        <td><button><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></button> - </td>
-        <td><button><%= link_to 'Inventory', animal_show_inventory_path(animal)%></button></td>
+        <td><button><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
   </tbody>

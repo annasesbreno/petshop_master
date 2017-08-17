@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: [:show, :edit, :update, :destroy, :change_status_sale, :change_status_sold, :show_inventory, :species_dog, :species_cat]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy, :change_status_sale, :change_status_sold, :show_inventory, :species_dog, :species_cat, :total_amount_sale]
   # GET /animals
   # GET /animals.json
   def index
@@ -67,13 +67,15 @@ class AnimalsController < ApplicationController
   end
 
   def species_dog
-    @animal.Species = "Dog"
-    @animal.save
+    redirect_to animal_show_inventory_path
   end
 
   def species_cat
-    @animal.Species = "Cat"
-    @animal.save
+    redirect_to animal_show_inventory_path
+  end
+
+  def total_amount_sale
+    @animal.Price
   end
 
   # DELETE /animals/1

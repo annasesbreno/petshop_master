@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get 'show_inventory' => 'animals#show_inventory'
     get 'species_dog' => 'animals#species_dog'
     get 'species_cat' => 'animals#species_cat'
+    get 'total_amount_sale' => 'animals#total_amount_sale'
     end
 end
 

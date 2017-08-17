@@ -1,18 +1,19 @@
+<p id="notice"><%= notice %></p>
 <div>
   <center><h1>Pet Shop Inventory</h1></center>
 </div>
 
 <h2>Summary</h2>
+<br>
 
+<p>
 <h4>For sale</h4>
-
-<% @animal.each do |animal| %>
-	<%= animal.Species %>
-	<%if @animal.Species == 'Dog'%>
-		<%= link_to 'Dog', animal_species_dog_path(animal)%>
-	<%else%>
-		<%= link_to 'Cat', animal_species_cat_path(animal)%>
-<%end%>
+	<strong>Number of Dogs:</strong>
+	<%= @animal = Animal.count %>
+	<br><strong>Number of Cats:</strong>
+	<%= @animal = Animal.count %>
+</p>
+<br>
 
 <p>
 <h4>Sold</h4>
@@ -21,13 +22,18 @@
 	<br><strong>Number of Cats:</strong>
 	<%= @animal = Animal.count %>
 </p>
+<br>
 
 <p>
-<h3>Total Amount Received From Sales</h3>
+<strong>Total Amount Received From Sales:</strong>
+	<%= @animal = Animal.count %>
 </p>
+<br>
 
-<br><br>
-<button><%= link_to 'Species', animals_path %></button> -
-<button><%= link_to 'Breed', animals_path %></button> -
-<button><%= link_to 'Status', animals_path %></button> -
-<button><%= link_to 'Back', animals_path %></button> 
+<h4>Filter</h4>
+<%= link_to 'Species', animals_path%> ||
+<%= link_to 'Breed', animals_path%> ||
+<%= link_to 'Status', animals_path%> 
+<br>
+<br>
+<button><%= link_to 'Back', animals_path%></button>

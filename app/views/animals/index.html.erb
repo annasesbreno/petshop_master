@@ -27,14 +27,14 @@
         <td><%= animal.Price %></td>
         <td><%= animal.Status %></td>
         <% if animal.Status == 'For Sale' %>
-          <td><button><%= link_to 'Mark as Sold', animal_change_status_sold_path(animal)%></button> - </td>
+          <td><button><%= link_to 'Mark as Sold', animal_change_status_sold_path(animal)%></button></td>
         <% else %>
-          <td><button><%= link_to 'Mark as Sale', animal_change_status_sale_path(animal)%></button> - </td>
+          <td><button><%= link_to 'Mark as Sale', animal_change_status_sale_path(animal)%></button></td>
         <%end%>
-        <td><button><%= link_to 'Show', animal%></button> - </td>
-        <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button> - </td> 
+        <td><button><%= link_to 'Show', animal%></button></td>
+        <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button></td> 
         <td><button><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></button>  </td>
-        <td><%= link_to 'Inventory', animal_show_inventory_path(animal)%></td>
+        <td><button><%= link_to 'Inventory', animal_show_inventory_path(animal)%></button></td>
       </tr>
     <% end %>
   </tbody>

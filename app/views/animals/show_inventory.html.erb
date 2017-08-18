@@ -10,7 +10,7 @@
 <strong>For sale</strong>
 <% @animal.each do |animal| %>
 	<br><strong>Number of <%= animal.Species %>s:</strong>
-	<%= animal = Animal.count(&:Status) %>
+		<%= animal = Animal.count(&:Status) %>
 <%end%>
 </p>
 
@@ -24,7 +24,7 @@
 
 <br>
 <strong>Total Amount Received From Sales:</strong>
-	<%= @animal = Animal.sum(&:Price) %>
+	₱<%= @animal = Animal.sum(&:Price) %>
 </p>
 <br>
 

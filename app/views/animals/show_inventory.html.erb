@@ -7,26 +7,24 @@
 <br>
 
 <p>
-<h4>For sale</h4>
-	<strong>Number of Dogs:</strong>
-	<%= @animal = Animal.count %>
-	<br><strong>Number of Cats:</strong>
-	<%= @animal = Animal.count %>
+<strong>For sale</strong>
+<% @animal.each do |animal| %>
+	<br><strong>Number of <%= animal.Species %>s:</strong>
+	<%= animal = Animal.count(&:Status) %>
+<%end%>
 </p>
-<br>
 
 <p>
-<h4>Sold</h4>
-	<strong>Number of Dogs:</strong>
-	<%= @animal = Animal.count %>
-	<br><strong>Number of Cats:</strong>
-	<%= @animal = Animal.count %>
+<strong>For sold</strong> 
+<% @animal.each do |animal| %>
+	<br><strong>Number of <%= animal.Species %>s:</strong>
+	<%= animal = Animal.count(&:Status) %>
+<%end%>
 </p>
-<br>
 
-<p>
+<br>
 <strong>Total Amount Received From Sales:</strong>
-	<%= @animal = Animal.count %>
+	<%= @animal = Animal.sum(&:Price) %>
 </p>
 <br>
 

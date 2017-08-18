@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'inventory/inventory'
   get 'sessions/new'
-  #root 'static_pages#home'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   get    '/login',   to: 'sessions#new'
@@ -12,8 +11,7 @@ Rails.application.routes.draw do
     get 'change_status_sale' => 'animals#change_status_sale'
     get 'change_status_sold' => 'animals#change_status_sold'
     get 'show_inventory' => 'animals#show_inventory'
-    get 'species_dog' => 'animals#species_dog'
-    get 'species_cat' => 'animals#species_cat'
+    get 'species' => 'animals#species'
     get 'total_amount_sale' => 'animals#total_amount_sale'
     end
 end

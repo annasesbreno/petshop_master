@@ -8,23 +8,23 @@
 
 <p>
 <strong>For sale</strong>
-<% @animal.each do |animal| %>
-	<br><strong>Number of <%= animal.Species %>s:</strong>
-		<%= animal = Animal.count(&:Status) %>
-<%end%>
+<% @animals_for_sale.each do |species, animals| %>
+   <br><strong>Number of <%= species %>s:</strong>
+       <%= animals.count %>
+<% end %>
 </p>
 
 <p>
 <strong>For sold</strong> 
-<% @animal.each do |animal| %>
-	<br><strong>Number of <%= animal.Species %>s:</strong>
-	<%= animal = Animal.count(&:Status) %>
-<%end%>
+<% @animals_for_sold.each do |species, animals| %>
+   <br><strong>Number of <%= species %>s:</strong>
+       <%= animals.count %>
+<% end %>
 </p>
 
-<br>
+<p>
 <strong>Total Amount Received From Sales:</strong>
-	₱<%= @animal = Animal.sum(&:Price) %>
+	<%= @animal = Animal.sum(&:Price) %>
 </p>
 <br>
 

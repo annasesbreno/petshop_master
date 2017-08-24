@@ -3,9 +3,9 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    @animal = Animal.all
-  end
-
+  @animal = Animal.all
+  @animal = Animal.search(params[:animal])
+end
   # GET /animals/1
   # GET /animals/1.json
   def show
@@ -67,6 +67,15 @@ class AnimalsController < ApplicationController
     @animals_for_sale = Animal.where(Status: 'For Sale').group_by(&:Species)
     @animals_for_sold = Animal.where(Status: 'Sold').group_by(&:Species)
   end
+
+def self.search(animal)
+  if term
+    where('Species LIKE ?', "%#{animal}%").order('id DESC')
+  else
+    order('id DESC') 
+  end
+end
+
 
   def show_species
     @animals_species_sale = Animal.where(Status: 'For Sale').group_by(&:Species)

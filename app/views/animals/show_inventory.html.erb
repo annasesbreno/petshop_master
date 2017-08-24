@@ -29,9 +29,10 @@
 <br>
 
 <h2>Filter</h2>
-<br><button><%= link_to 'Species', show_species_path%></button> -
-<button><%= link_to 'Breed', show_breed_path%></button> -
-<button><%= link_to 'Status', show_status_path%></button>
+<%= form_tag(show_inventory_path, method: :get) do %>
+  <%= text_field_tag :animal, params[:animal] %>
+  <%= submit_tag 'Search', Species: nil %>
+<% end %>
 
 <br>
 <br><br><button><%= link_to 'Back', animals_path%></button>

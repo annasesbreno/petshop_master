@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :users
     get 'show_inventory' => 'animals#show_inventory'
+    get 'show_species' => 'animals#show_species'
+    get 'show_breed' => 'animals#show_breed'
+    get 'show_status' => 'animals#show_status'
   resources :animals do
     get 'change_status_sale' => 'animals#change_status_sale'
     get 'change_status_sold' => 'animals#change_status_sold'

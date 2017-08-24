@@ -68,6 +68,21 @@ class AnimalsController < ApplicationController
     @animals_for_sold = Animal.where(Status: 'Sold').group_by(&:Species)
   end
 
+  def show_species
+    @animals_dog = Animal.where(Species: 'Dog').group_by(&:Species)
+    @animals_cat = Animal.where(Species: 'Cat').group_by(&:Species)
+  end
+
+  def show_breed
+    @animals_by_dogbreed = Animal.where(Species: 'Dog').group_by(&:Breed)
+    @animals_by_catbreed = Animal.where(Species: 'Cat').group_by(&:Breed)
+  end
+
+  def show_status
+    @animals_for_sale = Animal.where(Status: 'For Sale').group_by(&:Species)
+    @animals_for_sold = Animal.where(Status: 'Sold').group_by(&:Species)
+  end
+
   def species
   end
 

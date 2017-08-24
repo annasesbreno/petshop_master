@@ -7,7 +7,7 @@
 <br>
 
 <p>
-<strong>For sale</strong>
+<strong>FOR SALE</strong>
 <% @animals_for_sale.each do |species, animals| %>
    <br><strong>Number of <%= species %>s:</strong>
        <%= animals.count %>
@@ -15,7 +15,7 @@
 </p>
 
 <p>
-<strong>For sold</strong> 
+<strong>SOLD</strong> 
 <% @animals_for_sold.each do |species, animals| %>
    <br><strong>Number of <%= species %>s:</strong>
        <%= animals.count %>
@@ -28,10 +28,10 @@
 </p>
 <br>
 
-<h4>Filter</h4>
-<%= link_to 'Species', animals_path%> ||
-<%= link_to 'Breed', animals_path%> ||
-<%= link_to 'Status', animals_path%> 
+<h2>Filter</h2>
+<br><button><%= link_to 'Species', show_species_path%></button> -
+<button><%= link_to 'Breed', show_breed_path%></button> -
+<button><%= link_to 'Status', show_status_path%></button>
+
 <br>
-<br>
-<button><%= link_to 'Back', animals_path%></button>
+<br><br><button><%= link_to 'Back', animals_path%></button>

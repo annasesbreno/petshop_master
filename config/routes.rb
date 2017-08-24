@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get  '/signup',  to: 'users#new'
-  post '/signup',  to: 'users#create'
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  get 'user/index'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
   resources :users
     get 'show_inventory' => 'animals#show_inventory'
     get 'show_species' => 'animals#show_species'

@@ -1,30 +1,34 @@
 class UsersController < ApplicationController
-
-  def show
-    @user = User.find(params[:id])
-  end
-
-  def new
-  	@user = User.new
-  end
+    protect_from_forgery with: :exception
   
-  def create
-    @user = User.new(user_params)
-    if @user.save
-    	log_in @user
-    	flash[:success] = "Welcome to Petshop!"
-    	redirect_to @animal
-      # Handle a successful save.
-    else
-      render 'new'
-    end
+def new
+end
+
+def create
+  user = User.new(user_params)
+  if user.save
+    session[:user_id] = user.id
+    redirect_to '/'
+  else
+    redirect_to '/signup'
   end
 
-  private
+def user_params
+  params.require(:user).permit(:name, :email, :password, :password_confirmation)
+end
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
-    end
+# Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  helper_method :current_user
+
+  def authorize
+    redirect_to '/login' unless current_user
+  end
+
+end
 end
 

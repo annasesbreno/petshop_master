@@ -5,13 +5,13 @@
 
 <strong>FILTER SPECIES</strong>
 
-<% @animals_dog.each do |species, animals| %>
+<% @animals_species_sale.each do |species, animals| %>
   <br><%= species %>
-	<% end %>
+<% end %>
 
-<% @animals_cat.each do |species, animals| %>
+<% @animals_species_sold.each do |species, animals| %>
   <br><%= species %>
-	<% end %>
+<% end %>
 
 <br>
 <br><button><%= link_to 'Species', show_species_path%></button> -

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
     	log_in @user
     	flash[:success] = "Welcome to Petshop!"
-    	redirect_to @user
+    	redirect_to @animal
       # Handle a successful save.
     else
       render 'new'

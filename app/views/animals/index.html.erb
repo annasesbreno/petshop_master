@@ -17,6 +17,11 @@
     </tr>
   </thead>
 
+<%= form_tag(animals_path, method: :get) do %>
+  <%= text_field_tag :animal, params[:animal] %>
+  <%= submit_tag 'Search', Species: nil, Breed: nil, Status: nil, Price: nil%>
+<% end %>
+
 <tbody>
   <% @animal.each do |animal| %>
     <tr>

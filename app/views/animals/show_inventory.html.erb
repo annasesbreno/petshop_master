@@ -26,13 +26,5 @@
 <strong>Total Amount Received From Sales:</strong>
 	<%= @animal = Animal.sum(&:Price) %>
 </p>
-<br>
 
-<h2>Filter</h2>
-<%= form_tag(animals_path, method: :get) do %>
-  <%= text_field_tag :animal, params[:animal] %>
-  <%= submit_tag 'Search', Species: nil, Breed: nil, Status: nil, Price: nil%>
-<% end %>
-
-<br>
 <br><br><button><%= link_to 'Back', animals_path%></button>

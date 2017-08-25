@@ -29,9 +29,9 @@
 <br>
 
 <h2>Filter</h2>
-<%= form_tag(show_inventory_path, method: :get) do %>
+<%= form_tag(animals_path, method: :get) do %>
   <%= text_field_tag :animal, params[:animal] %>
-  <%= submit_tag 'Search', Species: nil %>
+  <%= submit_tag 'Search', Species: nil, Breed: nil, Status: nil, Price: nil%>
 <% end %>
 
 <br>

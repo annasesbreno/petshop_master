@@ -9,7 +9,6 @@
 <table>
   <thead>
     <tr>
-      <th><center>#</center></th>
       <th><center>Species</center></th>
       <th><center>Breed</center></th>
       <th><center>Price</center></th>
@@ -18,18 +17,17 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @animal.each_with_index do |animal, i| %>
-      <tr>
-        <td><%= (i+1) %></td>
-        <td><center><%= animal.Species %></center></td>
-        <td><%= animal.Breed %></td>
-        <td><%= animal.Price %></td>
-        <td><%= animal.Status %></td>
-        <% if animal.Status == 'For Sale' %>
-          <td><button><%= link_to 'Mark as Sold', animal_change_status_sold_path(animal)%></button></td>
-        <% else %>
-          <td><button><%= link_to 'Mark as Sale', animal_change_status_sale_path(animal)%></button></td>
+<tbody>
+  <% @animal.each do |animal| %>
+    <tr>
+      <td><center><%= animal.Species %></center></td>
+      <td><%= animal.Breed %></td>
+      <td><%= animal.Price %></td>
+      <td><%= animal.Status %></td>
+    <% if animal.Status == 'For Sale' %>
+        <td><button><%= link_to 'Mark as Sold', animal_change_status_sold_path(animal)%></button></td>
+      <% else %>
+      <td><button><%= link_to 'Mark as Sale', animal_change_status_sale_path(animal)%></button></td>
         <%end%>
         <td><button><%= link_to 'Show', animal%></button></td>
         <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button></td> 

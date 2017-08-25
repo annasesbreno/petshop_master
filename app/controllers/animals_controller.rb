@@ -5,6 +5,7 @@ class AnimalsController < ApplicationController
   def index
   @animal = Animal.all
   @animal = Animal.search(params[:animal])
+  #@animal = Animal.search(params[:animal])
 end
   # GET /animals/1
   # GET /animals/1.json

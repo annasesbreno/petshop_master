@@ -13,6 +13,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'rails-simple-search'
 
+gem 'bcrypt-ruby', '~> 3.0.0'
+
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

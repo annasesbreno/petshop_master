@@ -68,35 +68,6 @@ end
     @animals_for_sale = Animal.where(Status: 'For Sale').group_by(&:Species)
     @animals_for_sold = Animal.where(Status: 'Sold').group_by(&:Species)
   end
-
-def self.search(animal)
-  if term
-    where('Species LIKE ?', "%#{animal}%").order('id DESC')
-  else
-    order('id DESC') 
-  end
-end
-
-
-  def show_species
-    @animals_species_sale = Animal.where(Status: 'For Sale').group_by(&:Species)
-    @animals_species_sold = Animal.where(Status: 'Sold').group_by(&:Species)
-  end
-
-  def show_breed
-    @animals_breed_sale = Animal.where(Status: 'For Sale').group_by(&:Breed)
-    @animals_breed_sold = Animal.where(Status: 'Sold').group_by(&:Breed)
-  end
-
-  def show_status
-    @animals_for_sale = Animal.where(Status: 'For Sale').group_by(&:Species)
-    @animals_for_sold = Animal.where(Status: 'Sold').group_by(&:Species)
-  end
-
-  def total_amount_sale
-    @animal = Animal.sum(&:Price)
-  end
-
   # DELETE /animals/1
   # DELETE /animals/1.json
   def destroy

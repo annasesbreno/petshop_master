@@ -5,7 +5,15 @@ class AnimalsController < ApplicationController
   def index
   @animal = Animal.all
   @animal = Animal.search(params[:animal])
+  if params[:option] == "1"
+  #do something using the params[:search]
+  elsif params[:option] == "2"
+  #do something using the params[:search]
+  elsif params[:option] == "3"
+  #do something using the params[:search]
+  else
   #@animal = Animal.search(params[:animal])
+end
 end
   # GET /animals/1
   # GET /animals/1.json

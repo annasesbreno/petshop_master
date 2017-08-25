@@ -19,12 +19,12 @@
 
 <%= form_tag(animals_path, method: :get) do %>
   <%= text_field_tag :animal, params[:animal] %>
+    <%= radio_button_tag(:Species, '', params[:Species].nil?) %>
     <%= label_tag :Species %>
-    <%= radio_button_tag :Species, "Species" %>
+    <%= radio_button_tag(:Breed, '', params[:Breed].nil?) %>
     <%= label_tag :Breed %>
-    <%= radio_button_tag :Breed, "Breed" %>
+    <%= radio_button_tag(:Status, '', params[:Status].nil?) %>
     <%= label_tag :Status %>
-    <%= radio_button_tag :Status, "Status" %>
   <%= submit_tag 'Search', Species: nil, Breed: nil, Status: nil, Price: nil%>
 <% end %>
 

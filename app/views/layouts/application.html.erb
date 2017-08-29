@@ -11,7 +11,7 @@
 <% if current_user %>
   Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
 <% else %>
-  <%= link_to 'Logout', '/logout' %> | <%= link_to 'Inventory', '/animals' %>
+  <%= link_to 'Logout', '/login' %> | <%= link_to 'Pet Shop', '/animals' %>
 <% end %>
 <%= yield %>
 

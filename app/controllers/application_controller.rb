@@ -1,12 +1,15 @@
 class ApplicationController < ActionController::Base
-private
+  protect_from_forgery with: :exception
 
-def current_user
-  @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  def filter
+    if params[:query].blank?
+      @animal = Animal.all
+    else
+      field = params[:field]
+      query = "%#{params[:query]}%"
+      @animal = Animal.where("#{field} LIKE ?", query)
+    end
+  end
 end
-helper_method :current_user
-
-def authorize
-  redirect_to login_url, alert: "Not authorized" if current_user.nil?
-end
-end
+  #include SessionsHelper
+#end

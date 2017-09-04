@@ -3,9 +3,14 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-  @animal = Animal.all
-  @animal = Animal.search(params[:animal])
-end
+    @animal = Animal.all
+    #try filter!!!
+    @animal = Animal.where(nil)
+    @animal = @animal.species(params[species]) if params[:species].present?
+    @animal = @animal.breed(params[breed]) if params[:breed].present?
+    @animal = @animal.status(params[status]) if params[:status].present?
+  end
+
   # GET /animals/1
   # GET /animals/1.json
   def show
@@ -67,19 +72,42 @@ end
     @animals_for_sale = Animal.where(Status: 'For Sale').group_by(&:Species)
     @animals_for_sold = Animal.where(Status: 'Sold').group_by(&:Species)
   end
-  # DELETE /animals/1
-  # DELETE /animals/1.json
 
-  def filter
-    if params[:animal].blank?
-      @animal = Animal.all
-    else
-      field = params[:field]
-      query = "%#{params[:field]}%"
-      @animal = Animal.where("#{field} LIKE ?", animal)
-    end
+  def show_species
+    @animals_dog = Animal.where(Species: 'Dog').group_by(&:Species)
+    @animals_cat = Animal.where(Species: 'Cat').group_by(&:Species)
   end
 
+  def show_breed
+    @animals_by_dogbreed = Animal.where(Species: 'Dog').group_by(&:Breed)
+    @animals_by_catbreed = Animal.where(Species: 'Cat').group_by(&:Breed)
+  end
+
+  def show_status
+    @animals_for_sale = Animal.where(Status: 'For Sale').group_by(&:Species)
+    @animals_for_sold = Animal.where(Status: 'Sold').group_by(&:Species)
+  end
+
+  def species
+  end
+
+  #try filter
+  def search
+  @animals = Animal.search params[:search]
+  end
+
+  def total_amount_sale
+    @animal = Animal.sum(&:Price)
+  end
+
+  def index
+  @animal = Animal.all
+  @animal = Animal.search(params[:animal])
+  #@animal = Animal.search(params[:animal])
+  end
+
+  # DELETE /animals/1
+  # DELETE /animals/1.json
   def destroy
     @animal.destroy
     respond_to do |format|

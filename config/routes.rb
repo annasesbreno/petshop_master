@@ -8,6 +8,7 @@ resources :sessions
     get 'show_species' => 'animals#show_species'
     get 'show_breed' => 'animals#show_breed'
     get 'show_status' => 'animals#show_status'
+    get 'filter' => 'animals#filter'
   resources :animals do
     get 'change_status_sale' => 'animals#change_status_sale'
     get 'change_status_sold' => 'animals#change_status_sold'

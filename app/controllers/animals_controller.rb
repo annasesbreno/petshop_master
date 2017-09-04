@@ -69,6 +69,17 @@ end
   end
   # DELETE /animals/1
   # DELETE /animals/1.json
+
+  def filter
+    if params[:animal].blank?
+      @animal = Animal.all
+    else
+      field = params[:field]
+      query = "%#{params[:field]}%"
+      @animal = Animal.where("#{field} LIKE ?", animal)
+    end
+  end
+
   def destroy
     @animal.destroy
     respond_to do |format|

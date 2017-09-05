@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   get    '/login',   to: 'sessions#new'
@@ -6,6 +8,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   root 'animals#filter'
   resources :users
+  resources :sessions
     get 'show_inventory' => 'animals#show_inventory'
     get 'show_species' => 'animals#show_species'
     get 'show_breed' => 'animals#show_breed'

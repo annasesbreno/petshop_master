@@ -14,13 +14,13 @@
       <th><colspan="3"></th>
     </tr>
   </thead>
-<%= form_tag('/', method: 'get') do %>
+<center><%= form_tag('/', method: 'get') do %>
   <%= text_field_tag 'query' %>
-  <%= radio_button_tag 'field', 'Species' %> Species
+  <%= submit_tag 'Filter' %>
+  <br><%= radio_button_tag 'field', 'Species' %> Species
   <%= radio_button_tag 'field', 'Breed' %> Breed
   <%= radio_button_tag 'field', 'Price' %> Price
-  <%= radio_button_tag 'field', 'Status' %> Status
-  <%= submit_tag 'Filter' %>
+  <%= radio_button_tag 'field', 'Status' %> Status</center>
 <% end %>
 <% @animal.each do |animal| %>
 <br>
@@ -29,13 +29,13 @@
         <td><%= animal.Price %></td>
         <td><%= animal.Status %></td>
         <% if animal.Status == 'For Sale' %>
-          <td><%= link_to 'Sold', animal_change_status_sold_path(animal)%></td>
+          <td><button><%= link_to 'Mark as Sold', animal_change_status_sold_path(animal)%></button></td>
         <% else %>
-          <td><%= link_to 'For Sale', animal_change_status_sale_path(animal)%></td>
+          <td><button><%= link_to 'Mark as Sale', animal_change_status_sale_path(animal)%></button></td>
         <%end%>
-        <td><%= link_to 'Show', animal%></td>
-        <td><%= link_to 'Edit', edit_animal_path(animal) %></td> 
-        <td><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><button><%= link_to 'Show', animal%></button></td>
+        <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button></td> 
+        <td><button><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
   </tbody>

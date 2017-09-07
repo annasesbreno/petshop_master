@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(allowed_params)
+  @user = User.new(allowed_params)
     if @user.save
       redirect_to root_url, notice: 'Thank you for signing up!'
     else
@@ -12,9 +12,8 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
-def allowed_params
-  params.require(:user).permit(:email, :password, :password_confirmation)
-end
+private
+  def allowed_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 end

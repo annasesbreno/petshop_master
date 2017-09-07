@@ -1,13 +1,26 @@
+<style>
+body {
+    background-color: #F2F1F1;
+}
+
+h1 {
+    background-color: #DCE0E0;
+}
+
+p {
+    background-color: rgb(255,0,255);
+}
+</style>
 <center><h1>Log In</h1></center>
 <%= form_tag sessions_path do %>
   <center><div class="field">
-    <%= label_tag 'Email:' %><br />
+    <%= label_tag 'Email' %><br />
     <%= text_field_tag :email, params[:email] %>
   </div></center>
   <center><div class="field">
-    <%= label_tag 'Password:' %><br />
+    <%= label_tag 'Password' %><br />
     <%= password_field_tag :password %>
   </div></center>
   <center><div class="actions"><%= submit_tag "Log In" %></div></center>
 <% end %>
-<br><center><%= link_to 'New Account? Sign Up', signup_path %></center>
+<br><center>New User? <%= link_to 'Sign Up', signup_path %></center>

@@ -1,3 +1,16 @@
+<style>
+body {
+    background-color: #F2F1F1;
+}
+
+h1 {
+    background-color: #DCE0E0;
+}
+
+p {
+    background-color: rgb(255,0,255);
+}
+</style>
 <center><h1>Sign Up</h1></center>
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
@@ -11,15 +24,15 @@
     </div>
   <% end %>
   <center><div class="field">
-    <%= f.label 'Email:' %><br />
+    <%= f.label 'Email' %><br />
     <%= f.text_field :email %>
   </div></center>
   <center><div class="field">
-    <%= f.label 'Password:' %><br />
+    <%= f.label 'Password' %><br />
     <%= f.password_field :password %>
   </div></center>
   <center><div class="field">
-    <%= f.label 'Password Confirmation:' %><br />
+    <%= f.label 'Password Confirmation' %><br />
     <%= f.password_field :password_confirmation %>
   </div></center>
   <center><div class="actions"><%= f.submit "Sign Up" %></div></center>

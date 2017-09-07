@@ -1,12 +1,13 @@
-<h1>Log In</h1>
+<center><h1>Log In</h1></center>
 <%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %><br />
+  <center><div class="field">
+    <%= label_tag 'Email:' %><br />
     <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %><br />
+  </div></center>
+  <center><div class="field">
+    <%= label_tag 'Password:' %><br />
     <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log In" %></div>
+  </div></center>
+  <center><div class="actions"><%= submit_tag "Log In" %></div></center>
 <% end %>
+<br><center><%= link_to 'New Account? Sign Up', signup_path %></center>

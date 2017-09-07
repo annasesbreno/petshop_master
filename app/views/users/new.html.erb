@@ -35,5 +35,5 @@ p {
     <%= f.label 'Password Confirmation' %><br />
     <%= f.password_field :password_confirmation %>
   </div></center>
-  <center><div class="actions"><%= f.submit "Sign Up" %></div></center>
+  <center><div class="actions"><button><%= link_to 'Sign Up', login_path %></button></div></center>
 <% end %>

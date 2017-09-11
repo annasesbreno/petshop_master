@@ -1,21 +1,27 @@
-<style>
-body {
-    background-color: #F2F1F1;
-}
+<head>
+  <style>
+  body {font-size:20px; margin:0;}
+  .topnav {overflow: hidden; background-color: #A9A9A9;}
+  .topnav a {float: left; display: block; color: #f2f2f2; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;}
+  .topnav a:hover {background-color: #996633; color: black;}
+  </style>
+</head>
 
-h1 {
-    background-color: #DCE0E0;
-}
+<div class="topnav">
+  <a class="active" href="/animals">Home</a>
+  <a href="/animals/new">Add Animal</a>
+  <a href="/show_inventory">Inventory</a>
+  <a href="/login">Logout</a>
+</div>
 
-p {
-    background-color: #A6FDFD;
-}
-</style>
+<header>
+  <img class="pet-image" src="https://www.planitbusiness.com/wp-content/uploads/2017/03/Pets.jpg" alt="Pet Shop Inventory" width="1250" height="300">
+</header>
+
 <div>
   <center><h1>Pet Shop Inventory</h1></center>
 </div>
-<right><button><%= link_to 'Logout', login_path %></button></right>
-<br><br>
+<center>
 <table>
   <thead>
     <tr>
@@ -36,22 +42,19 @@ p {
 <% end %>
 <% @animal.each do |animal| %>
 <br>
-        <td><%= animal.Species %></td>
-        <td><%= animal.Breed %></td>
-        <td><%= animal.Price %></td>
-        <td><%= animal.Status %></td>
-        <% if animal.Status == 'For Sale' %>
-          <td><button><%= link_to 'Mark as Sold', animal_change_status_sold_path(animal)%></button></td>
-        <% else %>
-          <td><button><%= link_to 'Mark as Sale', animal_change_status_sale_path(animal)%></button></td>
-        <%end%>
-        <td><button><%= link_to 'Show', animal%></button></td>
-        <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button></td> 
-        <td><button><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+  <td><%= animal.Species %></td>
+  <td><%= animal.Breed %></td>
+  <td><%= animal.Price %></td>
+  <td><%= animal.Status %></td>
+    <% if animal.Status == 'For Sale' %>
+      <td><button><%= link_to 'Mark as Sold', animal_change_status_sold_path(animal)%></button></td>
+    <% else %>
+      <td><button><%= link_to 'Mark as For Sale', animal_change_status_sale_path(animal)%></button></td>
+    <%end%>
+      <td><button><%= link_to 'Show', animal%></button></td>
+      <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button></td> 
+      <td><button><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
   </tbody>
-</table>
-<br>
-<button><%= link_to 'Add Animal', new_animal_path %></button> |
-<button><%= link_to 'Inventory', show_inventory_path%></button>
+</table><br>

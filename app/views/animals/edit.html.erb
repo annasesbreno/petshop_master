@@ -1,7 +1,26 @@
+<head>
+	<style>
+	body {font-size:20px; margin:0;}
+	.topnav {overflow: hidden; background-color: #A9A9A9;}
+	.topnav a {float: left; display: block; color: #f2f2f2; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;}
+	.topnav a:hover {background-color: #996633; color: black;}
+	</style>
+</head>
+
+<div class="topnav">
+  <a class="active" href="/animals">Home</a>
+  <a href="/animals/new">Add Animal</a>
+  <a href="/show_inventory">Inventory</a>
+  <a href="/login">Logout</a>
+</div>
+
+<header>
+  <img class="pet-image" src="https://www.planitbusiness.com/wp-content/uploads/2017/03/Pets.jpg" alt="Pet Shop Inventory" width="1250" height="300">
+</header>
+
 <div>
   <center><h1>Pet Shop Inventory</h1></center>
 </div>
-<h3>Edit Profile</h3>
+<center><h3>Edit Profile</h3>
 
 <%= render 'form', animal: @animal %> 
-<button><%= link_to 'Back', animals_path %></button>

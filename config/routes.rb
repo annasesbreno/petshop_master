@@ -5,14 +5,13 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   get '/logout',  to: 'sessions#destroy'
-  root 'sessions#new'
+  root 'animals#filter'
   resources :users
   resources :sessions
     get 'show_inventory' => 'animals#show_inventory'
     get 'show_species' => 'animals#show_species'
     get 'show_breed' => 'animals#show_breed'
     get 'show_status' => 'animals#show_status'
-    get 'filter' => 'animals#filter'
   resources :animals do
     get 'change_status_sale' => 'animals#change_status_sale'
     get 'change_status_sold' => 'animals#change_status_sold'

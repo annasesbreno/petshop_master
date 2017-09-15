@@ -9,7 +9,7 @@ def create
     session[:user_id] = user.id
     redirect_to animals_path
   else
-    redirect_to '/animals'
+    redirect_to '/login'
   end
 end
   

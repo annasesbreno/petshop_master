@@ -1,4 +1,5 @@
 class AnimalsController < ApplicationController
+  protect_from_forgery with: :exception
   before_action :set_animal, only: [:show, :edit, :update, :destroy, :change_status_sale, :change_status_sold, :species, :total_amount_sale]
   # GET /animals
   # GET /animals.json
@@ -65,6 +66,17 @@ class AnimalsController < ApplicationController
   def total_amount_sale
     @animal = Animal.sum(&:Price)
   end
+
+  def filter
+    if params[:query].blank?
+      @animal = Animal.all
+    else
+      field = params[:field]
+      query = "%#{params[:query]}%"
+      @animal = Animal.where("#{field} LIKE ?", query)
+    end
+  end
+
   # DELETE /animals/1
   # DELETE /animals/1.json
   def destroy

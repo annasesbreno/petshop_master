@@ -5,18 +5,19 @@
   h1 {color:#605e66;}
   </style>
 </head>
-<center><h1>Pet Shop Inventory</h1></center>
-<center><h3>Log In</h3></center>
 
-<%= form_tag sessions_path do %>
-  <center><div class="field">
-    <%= label_tag 'Email' %><br />
-    <%= text_field_tag :email, params[:email] %>
-  </div></center>
-  <center><div class="field">
-    <%= label_tag 'Password' %><br />
-    <%= password_field_tag :password %>
-  </div></center>
-  <center><div class="actions"><%= submit_tag "Log In" %></div></center>
+<center>
+	<h1>Pet Shop Inventory</h1>
+</center>
+
+<center>
+	<h2>Log In</h2>
+</center>
+
+<%= form_tag '/login' do %>
+<center>
+  Email: <%= text_field_tag :email %><br>
+  Password: <%= password_field_tag :password %><br>
+  <%= submit_tag "Submit" %>
+</center>
 <% end %>
-<br><center>New User? <%= link_to 'Sign Up', signup_path %></center>

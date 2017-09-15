@@ -1,6 +1,7 @@
 class AnimalsController < ApplicationController
   protect_from_forgery with: :exception
   before_action :set_animal, only: [:show, :edit, :update, :destroy, :change_status_sale, :change_status_sold, :species, :total_amount_sale]
+  before_action :check_if_logged_in
   # GET /animals
   # GET /animals.json
   def index
@@ -75,6 +76,10 @@ class AnimalsController < ApplicationController
       query = "%#{params[:query]}%"
       @animal = Animal.where("#{field} LIKE ?", query)
     end
+  end
+
+  def check_if_logged_in
+    redirect_to login_path
   end
 
   # DELETE /animals/1

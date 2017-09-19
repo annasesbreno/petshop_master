@@ -1,7 +1,6 @@
 class AnimalsController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :set_animal, only: [:show, :edit, :update, :destroy, :change_status_sale, :change_status_sold, :species, :total_amount_sale]
-  before_action :check_if_logged_in
+  before_action :check_if_logged_in, :set_animal, only: [:show, :edit, :update, :destroy, :change_status_sale, :change_status_sold, :species, :total_amount_sale]
   # GET /animals
   # GET /animals.json
   def index
@@ -78,10 +77,6 @@ class AnimalsController < ApplicationController
     end
   end
 
-  def check_if_logged_in
-    redirect_to login_path
-  end
-
   # DELETE /animals/1
   # DELETE /animals/1.json
   def destroy
@@ -97,6 +92,10 @@ class AnimalsController < ApplicationController
   def set_animal
     id = params[:animal_id] || params[:id]
     @animal = Animal.find(id)
+  end
+
+    def check_if_logged_in
+    redirect_to login_path
   end
 
     # Never trust parameters from the scary internet, only allow the white list through.
